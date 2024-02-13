@@ -11,7 +11,7 @@ let cartasJugador = []
 let cartasComputador = []
 
 // ---------------- Crear Deck ----------------
-let crearDeck = (especiales, tipos, deck) => {
+let crearDeck = () => {
     for (i = 2; i <= 10; i++) {
         for (let tipo of tipos) {
             deck.push(i + tipo);
@@ -25,20 +25,21 @@ let crearDeck = (especiales, tipos, deck) => {
     deck = _.shuffle(deck)
     return deck;
 };
-deck= crearDeck(especiales, tipos, deck)
+crearDeck()
 console.log(deck);
-console.log(deck.length);
 
 
 // -------------  Pedir Carta ------------------
-
-let dameCarta = (deck) => {
+let pedirCarta = () => {
+    if ( deck.length === 0){
+        throw 'No hay mas cartas en la baraja'
+    }
     let carta = deck.shift()
+    console.log(deck);
     cartasJugador.push(carta)
     return carta
 }
-let nuevaCarta = dameCarta(deck)
-console.log( nuevaCarta ) 
-console.log( deck )
+// deck= []   prueba la condicional si el deck esta vacio
+pedirCarta(deck) 
 console.log(cartasJugador)
 
