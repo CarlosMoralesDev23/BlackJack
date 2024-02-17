@@ -5,8 +5,8 @@
  * 2S = Two of Spades
  */
 
-alert('Haz click en nuevo juego para comenzar, luego en pedir carta, y detener para pasar el turno a la computadora')
-alert('Ganas si sumas 21, te puedes detener antes y ver si la compu empata, gana o pierde') //Aun no codeado turno de la pc. 
+// alert('Haz click en nuevo juego para comenzar, luego en pedir carta, y detener para pasar el turno a la computadora')
+// alert('Ganas si sumas 21, te puedes detener antes y ver si la compu empata, gana o pierde') 
 let especiales = ["J", "K", "Q", "A"];
 let tipos = ["C", "D", "H", "S"];
 let deck = [];
@@ -19,6 +19,7 @@ let btnPedir         = document.getElementById("pedirCarta");
 let smallPuntos      = document.querySelectorAll("small");
 let btnDetener       = document.getElementById("detenerTurno");
 let divCartasJugador = document.getElementById('divCartasJugador')
+let divCartasComputador = document.getElementById('divCartasComputador')
 
 // ---------------- 1- Crear Deck ----------------
 let crearDeck = () => {
@@ -79,8 +80,33 @@ btnPedir.addEventListener('click', ()=>{
 btnDetener.addEventListener("click", () => {
     btnPedir.disabled = true;
     btnDetener.disabled = true;
-    console.log("Deshabilitado boton-pedir pruebalo");
+
+    while (puntosComputador < puntosJugador) {
+        const carta = pedirCarta();
+        puntosComputador += valorCarta(carta);
+        smallPuntos[1].innerText = puntosComputador;
+
+        const imgCarta = document.createElement("img");
+        imgCarta.src = `./assets/cartas/cartas/${carta}.png`;
+        imgCarta.classList.add("cartas");
+        divCartasComputador.append(imgCarta);
+
+        if (puntosComputador === puntosJugador) {
+            console.log('El computador igualo tus puntos perdiste')
+            break
+        }else if (puntosComputador > puntosJugador && puntosComputador < 21){
+            console.log('El computador hizo mas puntos que tu y menos de 21  GANO el Computador')
+            break
+        }else if(puntosComputador === 21){
+            console.log('El computador hizo 21 puntos perdiste')
+            break
+        }else if (puntosComputador > 21) {
+            console.log('El computador hizo mas de 21 puntos GANASTE')
+            break
+        }
+    }
 });
+
 
 btnNuevo.addEventListener('click', ()=>{
     crearDeck()
