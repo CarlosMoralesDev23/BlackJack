@@ -5,6 +5,8 @@
  * 2S = Two of Spades
  */
 
+alert('Haz click en nuevo juego para comenzar, luego en pedir carta, y detener para pasar el turno a la computadora')
+alert('Ganas si sumas 21, te puedes detener antes y ver si la compu empata, gana o pierde') //Aun no codeado turno de la pc. 
 let especiales = ["J", "K", "Q", "A"];
 let tipos = ["C", "D", "H", "S"];
 let deck = [];
@@ -33,7 +35,6 @@ let crearDeck = () => {
     deck = _.shuffle(deck);
     return deck;
 };
-crearDeck();
 
 // ------------- 2- Pedir Carta ------------------
 let pedirCarta = () => {
@@ -53,15 +54,6 @@ let valorCarta = (carta) => {
 };
 
 
-// -------------  Sumar Puntaje ------------------
-
-// let sumaPuntaje = (puntos)=>{
-//     puntosJugador += puntos
-//     console.log(`Puntos del jugador: ${puntosJugador}`);
-// }
-
-
-
 btnPedir.addEventListener('click', ()=>{
     const carta = pedirCarta()
     puntosJugador += valorCarta(carta)
@@ -73,13 +65,24 @@ btnPedir.addEventListener('click', ()=>{
     imgCarta.classList.add("cartas");
     divCartasJugador.append(imgCarta);
 
-    (puntosJugador === 21) ? console.log('Tu ganaste'):
-    (puntosJugador > 21) ? (console.log('Perdiste'), 
-                            btnPedir.disabled = true ):
-    console.log("Continua")
+    puntosJugador === 21
+        ? (console.log("Tu ganaste"),
+        (btnPedir.disabled = true),
+        (btnDetener.disabled = true))
+        : puntosJugador > 21
+        ? (console.log("Perdiste"),
+        (btnPedir.disabled = true),
+        (btnDetener.disabled = true))
+        : null;
 })
 
-btnDetener.addEventListener('click', ()=>{
-    btnPedir.disabled
-    console.log("Hola desde la rama boton-pedir")
+btnDetener.addEventListener("click", () => {
+    btnPedir.disabled = true;
+    btnDetener.disabled = true;
+    console.log("Deshabilitado boton-pedir pruebalo");
+});
+
+btnNuevo.addEventListener('click', ()=>{
+    crearDeck()
 })
+
