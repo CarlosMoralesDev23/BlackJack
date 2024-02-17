@@ -81,5 +81,5 @@ btnPedir.addEventListener('click', ()=>{
 
 btnDetener.addEventListener('click', ()=>{
     btnPedir.disabled
-    console.log("Hola")
+    console.log("Hola desde el main")
 })
