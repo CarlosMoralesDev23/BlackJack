@@ -44,7 +44,6 @@ let pedirCarta = () => {
     }
     carta = deck.shift();
     cartasJugador.push(carta);
-    console.log(cartasJugador);
     return carta;
 };
 
