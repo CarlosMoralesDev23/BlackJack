@@ -12,10 +12,11 @@ let cartasJugador = [];
 let cartasComputador = [];
 let puntosJugador = 0;
 let puntosComputador = 0;
-let btnNuevo        = document.getElementById("nuevoJuego");
-let btnPedir        = document.getElementById("pedirCarta");
-let btnDetener      = document.getElementById("detenerTurno");
-let smallPuntos     = document.querySelectorAll("small");
+let btnNuevo         = document.getElementById("nuevoJuego");
+let btnPedir         = document.getElementById("pedirCarta");
+let smallPuntos      = document.querySelectorAll("small");
+let btnDetener       = document.getElementById("detenerTurno");
+let divCartasJugador = document.getElementById('divCartasJugador')
 
 // ---------------- 1- Crear Deck ----------------
 let crearDeck = () => {
@@ -66,5 +67,17 @@ btnPedir.addEventListener('click', ()=>{
     puntosJugador += valorCarta(carta)
     smallPuntos[0].innerText = puntosJugador
 
+    //Esto va ser una fucnión insertar Carta
+    const imgCarta = document.createElement("img");
+    imgCarta.src = `./assets/cartas/cartas/${carta}.png`;
+    imgCarta.classList.add("cartas");
+    divCartasJugador.append(imgCarta);
 
+    (puntosJugador === 21) ? console.log('Tu ganaste'):
+    (puntosJugador > 21) ? (console.log('Perdiste'), 
+                            btnPedir.disabled = true ):
+    console.log("Continua")
+    
 })
+
+
