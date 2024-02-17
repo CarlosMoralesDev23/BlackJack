@@ -77,7 +77,11 @@ btnPedir.addEventListener('click', ()=>{
     (puntosJugador > 21) ? (console.log('Perdiste'), 
                             btnPedir.disabled = true ):
     console.log("Continua")
-    
+})
+
+btnDetener.addEventListener('click', ()=>{
+    btnPedir.disabled
+    console.log("Hola")
 })
 
 
