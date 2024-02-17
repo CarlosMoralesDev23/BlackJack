@@ -83,5 +83,3 @@ btnDetener.addEventListener('click', ()=>{
     btnPedir.disabled
     console.log("Hola")
 })
-
-
