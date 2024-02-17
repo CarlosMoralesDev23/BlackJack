@@ -8,10 +8,14 @@
 let especiales = ["J", "K", "Q", "A"];
 let tipos = ["C", "D", "H", "S"];
 let deck = [];
-let cartasJugador = []
-let cartasComputador = []
+let cartasJugador = [];
+let cartasComputador = [];
 let puntosJugador = 0;
 let puntosComputador = 0;
+let btnNuevo        = document.getElementById("nuevoJuego");
+let btnPedir        = document.getElementById("pedirCarta");
+let btnDetener      = document.getElementById("detenerTurno");
+let smallPuntos     = document.querySelectorAll("small");
 
 // ---------------- 1- Crear Deck ----------------
 let crearDeck = () => {
@@ -25,33 +29,27 @@ let crearDeck = () => {
             deck.push(especial + tipo);
         }
     }
-    deck = _.shuffle(deck)
+    deck = _.shuffle(deck);
     return deck;
 };
-crearDeck()
-console.log(deck);
-
+crearDeck();
 
 // ------------- 2- Pedir Carta ------------------
 let pedirCarta = () => {
-    if ( deck.length === 0){
-        throw 'No hay mas cartas en la baraja'
+    if (deck.length === 0) {
+        throw "No hay mas cartas en la baraja";
     }
-    carta = deck.shift()
-    cartasJugador.push(carta)
+    carta = deck.shift();
+    cartasJugador.push(carta);
     console.log(cartasJugador);
-    return carta
-}
-
-
+    return carta;
+};
 
 // ------------- 3- Puntaje Carta ------------------
 let valorCarta = (carta) => {
     const valor = carta.slice(0, -1);
-    return (isNaN(valor)) ? ( valor === 'A' ? 11 :10): valor*1; //String to Number
+    return isNaN(valor) ? (valor === "A" ? 11 : 10) : valor * 1; //String to Number
 };
-const valor = valorCarta( pedirCarta() )
-console.log(valor)
 
 
 // -------------  Sumar Puntaje ------------------
@@ -63,8 +61,10 @@ console.log(valor)
 
 
 
+btnPedir.addEventListener('click', ()=>{
+    const carta = pedirCarta()
+    puntosJugador += valorCarta(carta)
+    smallPuntos[0].innerText = puntosJugador
 
 
-
-
-
+})
