@@ -5,15 +5,15 @@
  * 2S = Two of Spades
  */
 
-// alert('Haz click en nuevo juego para comenzar, luego en pedir carta, y detener para pasar el turno a la computadora')
-// alert('Ganas si sumas 21, te puedes detener antes y ver si la compu empata, gana o pierde') 
+alert('Haz click en nuevo juego para comenzar, luego en pedir carta, y detener para pasar el turno a la computadora, reinicia navegador para una nueva partida')
+alert('Ganas si sumas 21, te puedes detener antes y ver si la compu empata, gana o pierde')
 let especiales = ["J", "K", "Q", "A"];
 let tipos = ["C", "D", "H", "S"];
 let deck = [];
 let cartasJugador = [];
 let cartasComputador = [];
-let puntosJugador = 0;
-let puntosComputador = 0;
+let pJugador = 0;
+let pCompu = 0;
 let btnNuevo         = document.getElementById("nuevoJuego");
 let btnPedir         = document.getElementById("pedirCarta");
 let smallPuntos      = document.querySelectorAll("small");
@@ -56,8 +56,8 @@ let valorCarta = (carta) => {
 
 btnPedir.addEventListener('click', ()=>{
     const carta = pedirCarta()
-    puntosJugador += valorCarta(carta)
-    smallPuntos[0].innerText = puntosJugador
+    pJugador += valorCarta(carta)
+    smallPuntos[0].innerText = pJugador
 
     //Esto va ser una fucnión insertar Carta
     const imgCarta = document.createElement("img");
@@ -65,11 +65,11 @@ btnPedir.addEventListener('click', ()=>{
     imgCarta.classList.add("cartas");
     divCartasJugador.append(imgCarta);
 
-    puntosJugador === 21
+    pJugador === 21
         ? (console.log("Tu ganaste"),
         (btnPedir.disabled = true),
         (btnDetener.disabled = true))
-        : puntosJugador > 21
+        : pJugador > 21
         ? (console.log("Perdiste"),
         (btnPedir.disabled = true),
         (btnDetener.disabled = true))
@@ -80,26 +80,26 @@ btnDetener.addEventListener("click", () => {
     btnPedir.disabled = true;
     btnDetener.disabled = true;
 
-    while (puntosComputador < puntosJugador) {
+    while (pCompu < pJugador) {
         const carta = pedirCarta();
-        puntosComputador += valorCarta(carta);
-        smallPuntos[1].innerText = puntosComputador;
+        pCompu += valorCarta(carta);
+        smallPuntos[1].innerText = pCompu;
 
         const imgCarta = document.createElement("img");
         imgCarta.src = `./assets/cartas/cartas/${carta}.png`;
         imgCarta.classList.add("cartas");
         divCartasComputador.append(imgCarta);
 
-        if (puntosComputador === puntosJugador) {
+        if (pCompu === pJugador) {
             console.log('El computador igualo tus puntos perdiste')
             break
-        }else if (puntosComputador > puntosJugador && puntosComputador < 21){
+        }else if (pCompu > pJugador && pCompu < 21){
             console.log('El computador hizo mas puntos que tu y menos de 21  GANO el Computador')
             break
-        }else if(puntosComputador === 21){
+        }else if(pCompu === 21){
             console.log('El computador hizo 21 puntos perdiste')
             break
-        }else if (puntosComputador > 21) {
+        }else if (pCompu > 21) {
             console.log('El computador hizo mas de 21 puntos GANASTE')
             break
         }
