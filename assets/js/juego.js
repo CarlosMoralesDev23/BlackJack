@@ -66,13 +66,14 @@ btnPedir.addEventListener('click', ()=>{
     divCartasJugador.append(imgCarta);
 
     pJugador === 21
-        ? (console.log("Tu ganaste"),
+        ? (console.warn("Tu ganaste"),
         (btnPedir.disabled = true),
         (btnDetener.disabled = true))
         : pJugador > 21
-        ? (console.log("Perdiste"),
+        ? (console.war("Perdiste"),
         (btnPedir.disabled = true),
-        (btnDetener.disabled = true))
+        (btnDetener.disabled = true),
+        turnoComputador(pJugador))
         : null;
 })
 
@@ -80,21 +81,7 @@ btnDetener.addEventListener("click", () => {
     btnPedir.disabled = true;
     btnDetener.disabled = true;
 
-    while (pCompu < pJugador) {
-        const carta = pedirCarta();
-        pCompu += valorCarta(carta);
-        smallPuntos[1].innerText = pCompu;
-
-        const imgCarta = document.createElement("img");
-        imgCarta.src = `./assets/cartas/cartas/${carta}.png`;
-        imgCarta.classList.add("cartas");
-        divCartasCompu.append(imgCarta);
-
-        (pCompu === pJugador)              ? console.warn('El computador igualo tus puntos perdiste'):
-        (pCompu > pJugador && pCompu < 21) ? console.warn('El computador hizo mas puntos que tu y menos de 21  GANO el Computador'):
-        (pCompu === 21)                    ? console.warn('El computador hizo 21 puntos perdiste'):
-        (pCompu > 21)                      ? console.log('El computador hizo mas de 21 puntos GANASTE'):null
-        }
+    turnoComputador(pJugador)
 })
 
 
@@ -104,6 +91,28 @@ btnNuevo.addEventListener('click', ()=>{
 
 
 
-// const turnoComputador = (pJugador)=>{
-    
-// }
+const turnoComputador = (pjugador)=>{
+        do{
+            const carta = pedirCarta();
+            pCompu += valorCarta(carta);
+            smallPuntos[1].innerText = pCompu;
+
+            const imgCarta = document.createElement("img");
+            imgCarta.src = `./assets/cartas/cartas/${carta}.png`;
+            imgCarta.classList.add("cartas");
+            divCartasCompu.append(imgCarta);
+
+            pCompu === pJugador
+                ? console.warn("El computador igualo tus puntos perdiste")
+                : pCompu > pJugador && pCompu < 21
+                ? console.warn("El computador hizo mas puntos que tu y menos de 21  GANO el Computador")
+                : pCompu === 21
+                ? console.warn("El computador hizo 21 puntos perdiste")
+                : pCompu > 21
+                ? console.warn("El computador hizo mas de 21 puntos GANASTE")
+                : null;
+            if(pjugador > 21){
+                break
+            }
+        }while (pCompu < pJugador)
+}
