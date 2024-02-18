@@ -41,22 +41,20 @@ const crearInsertarCarta = (carta)=>{
     imgCarta.src = `./assets/cartas/cartas/${carta}.png`;
     imgCarta.classList.add("cartas");
 
-    if(btnPedir.disabled === false){
-        divCartasJugador.append(imgCarta);
-    }else{
-        divCartasCompu.append(imgCarta);
-    }
+    btnPedir.disabled === false ? divCartasJugador.append(imgCarta) : divCartasCompu.append(imgCarta);
 }
 
 const pedirYSumarPts = ()=>{
-    
+    const carta = pedirCarta();
+    btnPedir.disabled === false
+        ? ((pJugador += valorCarta(carta)), (smallJugador.innerText = pJugador))
+        : ((pCompu += valorCarta(carta)), (smallCompu.innerText = pCompu));
 }
 
 
 btnPedir.addEventListener('click', ()=>{
-    const carta = pedirCarta()
-    pJugador += valorCarta(carta)
-    smallJugador.innerText = pJugador
+
+    pedirYSumarPts()
 
     crearInsertarCarta(carta)
 
@@ -97,9 +95,7 @@ btnNuevo.addEventListener('click', ()=>{
 
 const turnoComputador = (pjugador)=>{
     do{
-        const carta = pedirCarta();
-        pCompu += valorCarta(carta);
-        smallCompu.innerText = pCompu;
+        pedirYSumarPts()
 
         crearInsertarCarta(carta)
 
