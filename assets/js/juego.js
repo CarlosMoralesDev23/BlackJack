@@ -90,19 +90,10 @@ btnDetener.addEventListener("click", () => {
         imgCarta.classList.add("cartas");
         divCartasCompu.append(imgCarta);
 
-        if (pCompu === pJugador) {
-            console.log('El computador igualo tus puntos perdiste')
-            break
-        }else if (pCompu > pJugador && pCompu < 21){
-            console.log('El computador hizo mas puntos que tu y menos de 21  GANO el Computador')
-            break
-        }else if(pCompu === 21){
-            console.log('El computador hizo 21 puntos perdiste')
-            break
-        }else if (pCompu > 21) {
-            console.log('El computador hizo mas de 21 puntos GANASTE')
-            break
-        }
+        (pCompu === pJugador) ? (console.log('El computador igualo tus puntos perdiste')):
+        (pCompu > pJugador && pCompu < 21) ? console.log('El Computador GANO porque obtuvo mas puntos, y menos de 21'):
+        (pCompu === 21) ? console.log('El computador hizo 21 puntos perdiste'):
+        (pCompu > 21) ? console.log('El computador hizo mas de 21 puntos GANASTE'): null
     }
 });
 
