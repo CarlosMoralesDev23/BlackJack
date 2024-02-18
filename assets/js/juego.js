@@ -66,11 +66,12 @@ btnPedir.addEventListener('click', ()=>{
     divCartasJugador.append(imgCarta);
 
     pJugador === 21
-        ? (console.warn("Tu ganaste"),
+        ? (console.warn("Genial!, veamos si el computador igual 21"),
         (btnPedir.disabled = true),
-        (btnDetener.disabled = true))
+        (btnDetener.disabled = true),
+        turnoComputador())
         : pJugador > 21
-        ? (console.war("Perdiste"),
+        ? (console.warn("Perdiste"),
         (btnPedir.disabled = true),
         (btnDetener.disabled = true),
         turnoComputador(pJugador))
