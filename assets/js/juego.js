@@ -88,7 +88,7 @@ btnDetener.addEventListener("click", () => {
         const imgCarta = document.createElement("img");
         imgCarta.src = `./assets/cartas/cartas/${carta}.png`;
         imgCarta.classList.add("cartas");
-        divCartasComputador.append(imgCarta);
+        divCartasCompu.append(imgCarta);
 
         if (pCompu === pJugador) {
             console.log('El computador igualo tus puntos perdiste')
