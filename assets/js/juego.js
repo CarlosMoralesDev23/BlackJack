@@ -19,7 +19,7 @@ let btnPedir         = document.getElementById("pedirCarta");
 let smallPuntos      = document.querySelectorAll("small");
 let btnDetener       = document.getElementById("detenerTurno");
 let divCartasJugador = document.getElementById('divCartasJugador')
-let divCartasCompu   = document.getElementById('divCartasCompu')
+let divCartasComputador = document.getElementById('divCartasComputador')
 
 // ---------------- 1- Crear Deck ----------------
 let crearDeck = () => {
@@ -88,12 +88,21 @@ btnDetener.addEventListener("click", () => {
         const imgCarta = document.createElement("img");
         imgCarta.src = `./assets/cartas/cartas/${carta}.png`;
         imgCarta.classList.add("cartas");
-        divCartasCompu.append(imgCarta);
+        divCartasComputador.append(imgCarta);
 
-        (pCompu === pJugador) ? (console.log('El computador igualo tus puntos perdiste')):
-        (pCompu > pJugador && pCompu < 21) ? console.log('El Computador GANO porque obtuvo mas puntos, y menos de 21'):
-        (pCompu === 21) ? console.log('El computador hizo 21 puntos perdiste'):
-        (pCompu > 21) ? console.log('El computador hizo mas de 21 puntos GANASTE'): null
+        if (pCompu === pJugador) {
+            console.log('El computador igualo tus puntos perdiste')
+            break
+        }else if (pCompu > pJugador && pCompu < 21){
+            console.log('El computador hizo mas puntos que tu y menos de 21  GANO el Computador')
+            break
+        }else if(pCompu === 21){
+            console.log('El computador hizo 21 puntos perdiste')
+            break
+        }else if (pCompu > 21) {
+            console.log('El computador hizo mas de 21 puntos GANASTE')
+            break
+        }
     }
 });
 
@@ -101,4 +110,3 @@ btnDetener.addEventListener("click", () => {
 btnNuevo.addEventListener('click', ()=>{
     crearDeck()
 })
-
