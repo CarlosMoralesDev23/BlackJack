@@ -40,7 +40,6 @@ const crearInsertarCarta = (carta)=>{
     const imgCarta = document.createElement("img");
     imgCarta.src = `./assets/cartas/cartas/${carta}.png`;
     imgCarta.classList.add("cartas");
-
     btnPedir.disabled === false ? divCartasJugador.append(imgCarta) : divCartasCompu.append(imgCarta);
 }
 
@@ -59,7 +58,7 @@ btnPedir.addEventListener('click', ()=>{
     crearInsertarCarta(carta)
 
     pJugador === 21
-        ? (console.warn("Genial!, veamos si el computador igual 21"),
+        ? (console.warn("Genial! 21pts"),
         (btnPedir.disabled = true),
         (btnDetener.disabled = true),
         turnoComputador())
@@ -74,42 +73,39 @@ btnPedir.addEventListener('click', ()=>{
 btnDetener.addEventListener("click", () => {
     btnPedir.disabled = true;
     btnDetener.disabled = true;
-
-    turnoComputador(pJugador)
-})
-
-btnNuevo.addEventListener('click', ()=>{
-    console.clear()
-    deck     = [];
-    pJugador = 0;
-    pCompu = 0;
-    smallCompu.innerText       = "0";
-    smallJugador.innerText     = "0";
-    divCartasCompu.innerHTML   = "";
-    divCartasJugador.innerHTML = "";
-    btnDetener.disabled        = false;
-    btnPedir.disabled          = false;
-
-    deck = crearDeck();
-})
+    turnoComputador(pJugador);
+});
 
 const turnoComputador = (pjugador)=>{
     do{
         pedirYSumarPts()
-
         crearInsertarCarta(carta)
-
         pCompu === pJugador
-            ? console.warn("El computador igualo tus puntos perdiste")
+            ? console.warn("El computador igualo perdiste")
             : pCompu > pJugador && pCompu < 21
-            ? console.warn("El computador hizo mas puntos que tu y menos de 21  GANO el Computador")
+            ? console.warn("GANO el Computador")
             : pCompu === 21
-            ? console.warn("El computador hizo 21 puntos perdiste")
+            ? console.warn("Gano el Computador")
             : pCompu > 21
-            ? console.warn("El computador hizo mas de 21 puntos GANASTE")
+            ? console.warn("GANASTE")
             : null;
         if(pjugador > 21){
             break
         }
     }while (pCompu < pJugador)
 }
+
+btnNuevo.addEventListener("click", () => {
+    console.clear();
+    deck = [];
+    pJugador = 0;
+    pCompu = 0;
+    smallCompu.innerText = "0";
+    smallJugador.innerText = "0";
+    divCartasCompu.innerHTML = "";
+    divCartasJugador.innerHTML = "";
+    btnDetener.disabled = false;
+    btnPedir.disabled = false;
+
+    deck = crearDeck();
+});
