@@ -36,17 +36,29 @@ let valorCarta = (carta) => {
     return isNaN(valor) ? (valor === "A" ? 11 : 10) : valor * 1; //String to Number
 };
 
+const crearInsertarCarta = (carta)=>{
+    const imgCarta = document.createElement("img");
+    imgCarta.src = `./assets/cartas/cartas/${carta}.png`;
+    imgCarta.classList.add("cartas");
+
+    if(btnPedir.disabled === false){
+        divCartasJugador.append(imgCarta);
+    }else{
+        divCartasCompu.append(imgCarta);
+    }
+}
+
+const pedirYSumarPts = ()=>{
+    
+}
+
 
 btnPedir.addEventListener('click', ()=>{
     const carta = pedirCarta()
     pJugador += valorCarta(carta)
     smallJugador.innerText = pJugador
 
-    //Esto va ser una fucnión insertar Carta
-    const imgCarta = document.createElement("img");
-    imgCarta.src = `./assets/cartas/cartas/${carta}.png`;
-    imgCarta.classList.add("cartas");
-    divCartasJugador.append(imgCarta);
+    crearInsertarCarta(carta)
 
     pJugador === 21
         ? (console.warn("Genial!, veamos si el computador igual 21"),
@@ -89,10 +101,7 @@ const turnoComputador = (pjugador)=>{
         pCompu += valorCarta(carta);
         smallCompu.innerText = pCompu;
 
-        const imgCarta = document.createElement("img");
-        imgCarta.src = `./assets/cartas/cartas/${carta}.png`;
-        imgCarta.classList.add("cartas");
-        divCartasCompu.append(imgCarta);
+        crearInsertarCarta(carta)
 
         pCompu === pJugador
             ? console.warn("El computador igualo tus puntos perdiste")
