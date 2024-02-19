@@ -109,3 +109,4 @@ btnNuevo.addEventListener("click", () => {
 
     deck = crearDeck();
 });
+
