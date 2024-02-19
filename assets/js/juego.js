@@ -120,4 +120,11 @@ btnNuevo.addEventListener("click", () => {
     btnPedir.disabled = false;
 
     deck = crearDeck();
+    
 });
+
+
+//TODO hacer modulos
+//TODO Hacer valor de A =1 cuando corresponda
+//TODO Hacer comenzar partida sin tocar boton, para mejor usabilidad
+//TODO Hacer multiplayer
