@@ -4,12 +4,34 @@ html, body {
     color: white;
 }
 
+body{
+    display: flex;
+    flex-direction: column;
+}
+
 .titulo {
     text-align: center;
     background-color: black;
     color: white;
     padding: 20px;
-    font-size: 25px;
+}
+
+h1{
+    font-size: 50px;
+}
+
+.btn{
+    width: 150px;
+    height: 40px;
+}
+
+.caja-cartas{
+    height: 450px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
 }
 
 .cartas{
@@ -19,14 +41,13 @@ html, body {
     margin-left: -60px;
 }
 
+
+
 #computador-cartas, #jugador-cartas{
     height: 180px;
 }
 
-body{
-    display: flex;
-    flex-direction: column;
-}
+
 
 .caja-cartas{
     display: flex;
@@ -36,7 +57,6 @@ body{
     padding: 15px;
     margin-bottom: 25px;
     border: 2px solid black;
-    margin: ;
 }
 
 #caja-instrucciones{
