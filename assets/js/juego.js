@@ -1,5 +1,4 @@
-// alert('Haz click en nuevo juego para comenzar, luego en pedir carta, y detener para pasar el turno a la computadora, reinicia navegador para una nueva partida')
-// alert('Ganas si sumas 21, te puedes detener antes y ver si la compu empata, gana o pierde')
+
 const tipos = ["C", "D", "H", "S"],
     especiales = ["J", "K", "Q", "A"];
 let deck = [];

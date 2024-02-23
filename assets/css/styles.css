@@ -25,3 +25,9 @@ html, body {
 #computador-cartas, #jugador-cartas{
     height: 180px;
 }
+
+
+body{
+    display: flex;
+    flex-direction: column;
+}
