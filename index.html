@@ -17,63 +17,67 @@
             <h1>Soy Blackjack</h1>
         </header>
 
-        <div id = 'cajaCartas'>
-                    <div class="row mt-2">
-            <div class="col text-center">
-                <button id="btnNuevo" class="btn btn-danger">
-                    Nuevo juego
-                </button>
-                <button id="btnPedir" class="btn btn-primary">
-                    Pedir carta
-                </button>
-                <button id="btnDetener" class="btn btn-primary">Detener</button>
+        <main>
+            <div class="row mt-2 botones">
+                <div class="col text-center">
+                    <button id="btnNuevo" class="btn btn-danger">
+                        Nuevo juego
+                    </button>
+                    <button id="btnPedir" class="btn btn-primary">
+                        Pedir carta
+                    </button>
+                    <button id="btnDetener" class="btn btn-primary">
+                        Detener
+                    </button>
+                </div>
             </div>
-        </div>
 
-        <div class="row container">
-            <div class="col">
-                <h2>Jugador 1 - <small id="smallJugador"> 0 </small></h2>
-                <div id="divCartasJugador"></div>
-            </div>
-        </div>
+            <div class="row container caja-cartas">
+                <div class="col">
+                    <h2>
+                        Jugador 1 - <small id="smallJugador"> 0 </small>
+                    </h2>
+                    <div id="divCartasJugador"></div>
+                </div>
 
-        <div class="row container mt-4">
-            <div class="col">
-                <h2>Computador - <small id="smallCompu"> 0 </small></h2>
-                <div id="divCartasCompu"></div>
+                <div class="col">
+                    <h2>Computador - <small id="smallCompu"> 0 </small></h2>
+                    <div id="divCartasCompu"></div>
+                </div>
             </div>
-        </div>
         
-        </div>
 
-        <div div = 'caja-instrucciones'>
-            <div id="instruccionesBotones">
-                <h3>¿Como comenzar?</h3>
+            <div id="caja-instrucciones">
+                <div id="instruccionesBotones">
+                    <h4>¿Como comenzar?</h4>
 
-                <ul>
-                    <li>Click en nuevo juego para comenzar</li>
-                    <li>Click pedir carta, para obtener una carta mas</li>
-                    <li>
-                        Click detener, para pasarle el turno a la computadora
-                    </li>
-                </ul>
+                    <ul>
+                        <li>Click en nuevo juego para comenzar</li>
+                        <li>Click pedir carta, para obtener una carta mas</li>
+                        <li>
+                            Click detener, para pasarle el turno a la
+                            computadora
+                        </li>
+                    </ul>
+                </div>
+
+                <div id="instruccionesGanar">
+                    <h4>¿Como ganas?</h4>
+
+                    <ul>
+                        <li>Ganas si sumas 21, y la computadora no hace 21</li>
+                        <li>Te puedes detener cuando quieras.</li>
+                        <li>La computadora gana si, te empata, o hace 21.</li>
+                    </ul>
+                </div>
+
+                <div id="instruccionesPerder">
+                    <h4>¿Quien pierde?</h4>
+                    <p>Quien haga menos puntos, o quien se pase de 21</p>
+                    <p>Suerte!!!</p>
+                </div>
             </div>
-
-            <div id="instruccionesGanar">
-                <h3>¿Como ganas?</h3>
-
-                <ul>
-                    <li>Ganas si sumas 21, y la computadora no hace 21</li>
-                    <li>Te puedes detener cuando quieras.</li>
-                    <li>La computadora gana si, te empata, o hace 21.</li>
-                </ul>
-            </div>
-
-            <div id="instruccionesPerder">
-                <h3>¿Quien pierde?</h3>
-                <h4>Quien haga menos puntos, o quien se pase de 21</h4>
-            </div>
-        </div>
+        </main>
 
         <script src="assets/js/underscore-min.js"></script>
         <script src="./assets/js/juego.js"></script>
