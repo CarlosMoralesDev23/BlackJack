@@ -25,14 +25,22 @@ h1{
     height: 40px;
 }
 
+
+
+
+
 .caja-cartas{
-    height: 450px;
-    margin-top: 20px;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-
+    justify-content: center;
+    height: 275px;
+    padding: 15px;
+    border: 2px solid black;
+    margin: 0 auto;
+    margin-top: 25px;
+    margin-bottom: 15px;
 }
+
 
 .cartas{
     position: relative;
@@ -42,27 +50,23 @@ h1{
 }
 
 
-
 #computador-cartas, #jugador-cartas{
     height: 180px;
 }
 
 
 
-.caja-cartas{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    height: 200px;
-    padding: 15px;
-    margin-bottom: 25px;
-    border: 2px solid black;
-}
+
+
+
+
+
+
 
 #caja-instrucciones{
     color: white;
     font-size: 14px;
-    margin-top: 100px;
+    margin-top: 70px;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;

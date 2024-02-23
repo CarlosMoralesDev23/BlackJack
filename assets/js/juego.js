@@ -92,13 +92,13 @@ const turnoComputador = (pjugador) => {
         pedirYSumarPts();
         crearInsertarCarta(carta);
         pCompu === pJugador
-            ? console.warn("El computador igualo perdiste")
+            ? console.log("El computador igualo perdiste")
             : pCompu > pJugador && pCompu < 21
-            ? console.warn("GANO el Computador")
+            ? console.log("GANO el Computador")
             : pCompu === 21
-            ? console.warn("Gano el Computador")
+            ? console.log("Gano el Computador")
             : pCompu > 21
-            ? console.warn("GANASTE")
+            ? console.log("GANASTE")
             : null;
         if (pjugador > 21) {
             break;
