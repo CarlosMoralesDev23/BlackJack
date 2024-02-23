@@ -87,11 +87,22 @@ btnDetener.addEventListener("click", () => {
     turnoComputador(pJugador);
 });
 
+
+
+
+
+
+
+
+
 const turnoComputador = (pjugador) => {
-    do {
-        pedirYSumarPts();
-        crearInsertarCarta(carta);
-        pCompu === pJugador
+
+
+    const realizarTurnoCompu = () =>{
+        setTimeout(() => {
+            pedirYSumarPts();
+            crearInsertarCarta(carta);
+            pCompu === pJugador
             ? console.log("El computador igualo perdiste")
             : pCompu > pJugador && pCompu < 21
             ? console.log("GANO el Computador")
@@ -99,12 +110,37 @@ const turnoComputador = (pjugador) => {
             ? console.log("Gano el Computador")
             : pCompu > 21
             ? console.log("GANASTE")
-            : null;
-        if (pjugador > 21) {
-            break;
-        }
-    } while (pCompu < pJugador);
+            : pjugador > 21 && pCompu < 21
+            ? console.log("Perdiste"):
+            realizarTurnoCompu()
+        }, 500);
+    }
+
+    realizarTurnoCompu()
+
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 btnNuevo.addEventListener("click", () => {
     console.clear();
